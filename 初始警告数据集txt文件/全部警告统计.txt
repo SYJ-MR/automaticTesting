@@ -1,0 +1,230 @@
+ProjectName;Violation Type;Occurrence;Category
+biojava-biojava;SE_NO_SERIALVERSIONID;5195;Bad practice
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE;6112;Dodgy code
+biojava-biojava;BC_UNCONFIRMED_CAST;3017;Dodgy code
+biojava-biojava;DLS_DEAD_LOCAL_STORE;10137;Dodgy code
+biojava-biojava;EI_EXPOSE_REP;9535;Malicious code vulnerability
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC_ANON;3623;Performance
+biojava-biojava;EI_EXPOSE_REP2;8118;Malicious code vulnerability
+biojava-biojava;SE_BAD_FIELD;5506;Bad practice
+biojava-biojava;NM_METHOD_NAMING_CONVENTION;738;Bad practice
+biojava-biojava;DM_DEFAULT_ENCODING;18171;Internationalization
+biojava-biojava;REC_CATCH_EXCEPTION;13031;Dodgy code
+biojava-biojava;UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR;4861;Dodgy code
+biojava-biojava;PZLA_PREFER_ZERO_LENGTH_ARRAYS;1858;Dodgy code
+biojava-biojava;BC_UNCONFIRMED_CAST_OF_RETURN_VALUE;1503;Dodgy code
+biojava-biojava;RI_REDUNDANT_INTERFACES;2762;Dodgy code
+biojava-biojava;DM_CONVERT_CASE;10380;Internationalization
+biojava-biojava;ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD;844;Dodgy code
+biojava-biojava;SF_SWITCH_NO_DEFAULT;1337;Dodgy code
+biojava-biojava;MS_SHOULD_BE_FINAL;7750;Malicious code vulnerability
+biojava-biojava;NP_LOAD_OF_KNOWN_NULL_VALUE;1204;Dodgy code
+biojava-biojava;URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD;1483;Dodgy code
+biojava-biojava;URF_UNREAD_FIELD;3013;Performance
+biojava-biojava;LI_LAZY_INIT_STATIC;1109;Multithreaded correctness
+biojava-biojava;NM_CLASS_NAMING_CONVENTION;812;Bad practice
+biojava-biojava;MS_PKGPROTECT;2267;Malicious code vulnerability
+biojava-biojava;DM_NUMBER_CTOR;5410;Performance
+biojava-biojava;UPM_UNCALLED_PRIVATE_METHOD;2287;Performance
+biojava-biojava;FE_FLOATING_POINT_EQUALITY;2518;Dodgy code
+biojava-biojava;IS2_INCONSISTENT_SYNC;2403;Multithreaded correctness
+biojava-biojava;SE_TRANSIENT_FIELD_NOT_RESTORED;342;Bad practice
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC;1653;Performance
+biojava-biojava;RV_RETURN_VALUE_IGNORED_BAD_PRACTICE;2455;Bad practice
+biojava-biojava;DLS_DEAD_LOCAL_STORE_OF_NULL;684;Dodgy code
+biojava-biojava;WMI_WRONG_MAP_ITERATOR;4191;Performance
+biojava-biojava;DE_MIGHT_IGNORE;2312;Bad practice
+biojava-biojava;CI_CONFUSED_INHERITANCE;364;Dodgy code
+biojava-biojava;NM_CONFUSING;1558;Bad practice
+biojava-biojava;EQ_DOESNT_OVERRIDE_EQUALS;411;Dodgy code
+biojava-biojava;UCF_USELESS_CONTROL_FLOW;1563;Dodgy code
+biojava-biojava;OBL_UNSATISFIED_OBLIGATION;439;Experimental
+biojava-biojava;ES_COMPARING_STRINGS_WITH_EQ;1187;Bad practice
+biojava-biojava;OS_OPEN_STREAM_EXCEPTION_PATH;5642;Bad practice
+biojava-biojava;SBSC_USE_STRINGBUFFER_CONCATENATION;2626;Performance
+biojava-biojava;SF_SWITCH_FALLTHROUGH;236;Dodgy code
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE;622;Dodgy code
+biojava-biojava;DM_FP_NUMBER_CTOR;2163;Performance
+biojava-biojava;UC_USELESS_CONDITION;919;Dodgy code
+biojava-biojava;HE_EQUALS_USE_HASHCODE;1186;Bad practice
+biojava-biojava;OS_OPEN_STREAM;1491;Bad practice
+biojava-biojava;SE_INNER_CLASS;360;Bad practice
+biojava-biojava;SS_SHOULD_BE_STATIC;418;Performance
+biojava-biojava;MS_MUTABLE_ARRAY;230;Malicious code vulnerability
+biojava-biojava;IP_PARAMETER_IS_DEAD_BUT_OVERWRITTEN;417;Correctness
+biojava-biojava;NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE;492;Dodgy code
+biojava-biojava;NP_NULL_ON_SOME_PATH;918;Correctness
+biojava-biojava;NP_BOOLEAN_RETURN_NULL;13;Bad practice
+biojava-biojava;CN_IDIOM_NO_SUPER_CALL;629;Bad practice
+biojava-biojava;OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE;2134;Experimental
+biojava-biojava;DB_DUPLICATE_SWITCH_CLAUSES;355;Dodgy code
+biojava-biojava;SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE;75;Security
+biojava-biojava;RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT;569;Dodgy code
+biojava-biojava;SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING;183;Security
+biojava-biojava;CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE;844;Bad practice
+biojava-biojava;SE_BAD_FIELD_STORE;1797;Bad practice
+biojava-biojava;SE_COMPARATOR_SHOULD_BE_SERIALIZABLE;1416;Bad practice
+biojava-biojava;VA_FORMAT_STRING_USES_NEWLINE;1862;Bad practice
+biojava-biojava;EQ_COMPARETO_USE_OBJECT_EQUALS;768;Bad practice
+biojava-biojava;DM_BOXED_PRIMITIVE_FOR_PARSING;1089;Performance
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE;279;Correctness
+biojava-biojava;RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN;185;Bad practice
+biojava-biojava;DM_EXIT;1806;Bad practice
+biojava-biojava;ES_COMPARING_PARAMETER_STRING_WITH_EQ;337;Bad practice
+biojava-biojava;HE_INHERITS_EQUALS_USE_HASHCODE;13;Bad practice
+biojava-biojava;CN_IDIOM;79;Bad practice
+biojava-biojava;ODR_OPEN_DATABASE_RESOURCE;14;Bad practice
+biojava-biojava;UUF_UNUSED_FIELD;713;Performance
+biojava-biojava;HE_EQUALS_NO_HASHCODE;5;Bad practice
+biojava-biojava;DM_STRING_TOSTRING;509;Performance
+biojava-biojava;NM_FIELD_NAMING_CONVENTION;693;Bad practice
+biojava-biojava;ICAST_INTEGER_MULTIPLY_CAST_TO_LONG;243;Dodgy code
+biojava-biojava;IT_NO_SUCH_ELEMENT;276;Bad practice
+biojava-biojava;HE_HASHCODE_NO_EQUALS;13;Bad practice
+biojava-biojava;DP_DO_INSIDE_DO_PRIVILEGED;89;Malicious code vulnerability
+biojava-biojava;UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD;498;Dodgy code
+biojava-biojava;DM_STRING_CTOR;1614;Performance
+biojava-biojava;BC_VACUOUS_INSTANCEOF;335;Dodgy code
+biojava-biojava;NP_GUARANTEED_DEREF;219;Correctness
+biojava-biojava;UWF_UNWRITTEN_FIELD;641;Correctness
+biojava-biojava;NO_NOTIFY_NOT_NOTIFYALL;86;Multithreaded correctness
+biojava-biojava;MS_OOI_PKGPROTECT;44;Malicious code vulnerability
+biojava-biojava;BIT_SIGNED_CHECK;370;Bad practice
+biojava-biojava;MS_MUTABLE_COLLECTION_PKGPROTECT;707;Malicious code vulnerability
+biojava-biojava;VO_VOLATILE_INCREMENT;5;Multithreaded correctness
+biojava-biojava;UC_USELESS_OBJECT;1266;Dodgy code
+biojava-biojava;NP_NULL_PARAM_DEREF;440;Correctness
+biojava-biojava;HE_HASHCODE_USE_OBJECT_EQUALS;112;Bad practice
+biojava-biojava;UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD;297;Dodgy code
+biojava-biojava;RpC_REPEATED_CONDITIONAL_TEST;122;Correctness
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS;264;Performance
+biojava-biojava;UC_USELESS_VOID_METHOD;324;Dodgy code
+biojava-biojava;EQ_UNUSUAL;18;Dodgy code
+biojava-biojava;RR_NOT_CHECKED;215;Bad practice
+biojava-biojava;NS_NON_SHORT_CIRCUIT;405;Dodgy code
+biojava-biojava;NP_NULL_ON_SOME_PATH_EXCEPTION;1044;Correctness
+biojava-biojava;NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT;88;Bad practice
+biojava-biojava;NP_TOSTRING_COULD_RETURN_NULL;64;Bad practice
+biojava-biojava;SR_NOT_CHECKED;198;Bad practice
+biojava-biojava;DM_BOOLEAN_CTOR;410;Performance
+biojava-biojava;MF_CLASS_MASKS_FIELD;58;Correctness
+biojava-biojava;NM_SAME_SIMPLE_NAME_AS_INTERFACE;48;Bad practice
+biojava-biojava;BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS;829;Bad practice
+biojava-biojava;MS_FINAL_PKGPROTECT;1330;Malicious code vulnerability
+biojava-biojava;UR_UNINIT_READ;63;Correctness
+biojava-biojava;ICAST_IDIV_CAST_TO_DOUBLE;537;Dodgy code
+biojava-biojava;UG_SYNC_SET_UNSYNC_GET;235;Multithreaded correctness
+biojava-biojava;RV_RETURN_VALUE_IGNORED;221;Correctness
+biojava-biojava;DC_DOUBLECHECK;161;Multithreaded correctness
+biojava-biojava;DMI_INVOKING_TOSTRING_ON_ARRAY;193;Correctness
+biojava-biojava;EQ_CHECK_FOR_OPERAND_NOT_COMPATIBLE_WITH_THIS;53;Bad practice
+biojava-biojava;DMI_HARDCODED_ABSOLUTE_FILENAME;2556;Dodgy code
+biojava-biojava;SIO_SUPERFLUOUS_INSTANCEOF;120;Correctness
+biojava-biojava;ODR_OPEN_DATABASE_RESOURCE_EXCEPTION_PATH;682;Bad practice
+biojava-biojava;UI_INHERITANCE_UNSAFE_GETRESOURCE;30;Bad practice
+biojava-biojava;IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD;5;Dodgy code
+biojava-biojava;SE_BAD_FIELD_INNER_CLASS;93;Bad practice
+biojava-biojava;MS_EXPOSE_REP;362;Malicious code vulnerability
+biojava-biojava;MS_CANNOT_BE_FINAL;25;Malicious code vulnerability
+biojava-biojava;STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE;247;Multithreaded correctness
+biojava-biojava;VO_VOLATILE_REFERENCE_TO_ARRAY;28;Multithreaded correctness
+biojava-biojava;RC_REF_COMPARISON_BAD_PRACTICE;156;Bad practice
+biojava-biojava;DP_CREATE_CLASSLOADER_INSIDE_DO_PRIVILEGED;18;Malicious code vulnerability
+biojava-biojava;WA_NOT_IN_LOOP;23;Multithreaded correctness
+biojava-biojava;NP_ALWAYS_NULL;26;Correctness
+biojava-biojava;RV_NEGATING_RESULT_OF_COMPARETO;12;Bad practice
+biojava-biojava;DM_STRING_VOID_CTOR;114;Performance
+biojava-biojava;DM_BOXED_PRIMITIVE_FOR_COMPARE;48;Performance
+biojava-biojava;UWF_NULL_FIELD;98;Correctness
+biojava-biojava;RV_CHECK_FOR_POSITIVE_INDEXOF;627;Dodgy code
+biojava-biojava;INT_BAD_COMPARISON_WITH_NONNEGATIVE_VALUE;5;Correctness
+biojava-biojava;CO_COMPARETO_INCORRECT_FLOATING;1098;Bad practice
+biojava-biojava;LI_LAZY_INIT_UPDATE_STATIC;359;Multithreaded correctness
+biojava-biojava;BC_IMPOSSIBLE_INSTANCEOF;5;Correctness
+biojava-biojava;IM_AVERAGE_COMPUTATION_COULD_OVERFLOW;110;Dodgy code
+biojava-biojava;NN_NAKED_NOTIFY;285;Multithreaded correctness
+biojava-biojava;EQ_OVERRIDING_EQUALS_NOT_SYMMETRIC;5;Correctness
+biojava-biojava;SA_FIELD_DOUBLE_ASSIGNMENT;84;Dodgy code
+biojava-biojava;IM_BAD_CHECK_FOR_ODD;195;Dodgy code
+biojava-biojava;DB_DUPLICATE_BRANCHES;254;Dodgy code
+biojava-biojava;EC_UNRELATED_TYPES;279;Correctness
+biojava-biojava;NS_DANGEROUS_NON_SHORT_CIRCUIT;572;Dodgy code
+biojava-biojava;BX_UNBOXING_IMMEDIATELY_REBOXED;131;Performance
+biojava-biojava;NP_UNWRITTEN_FIELD;220;Correctness
+biojava-biojava;NP_DEREFERENCE_OF_READLINE_VALUE;589;Dodgy code
+biojava-biojava;UL_UNRELEASED_LOCK_EXCEPTION_PATH;126;Multithreaded correctness
+biojava-biojava;DMI_COLLECTION_OF_URLS;176;Performance
+biojava-biojava;DM_BOXED_PRIMITIVE_TOSTRING;55;Performance
+biojava-biojava;DM_GC;778;Performance
+biojava-biojava;UW_UNCOND_WAIT;23;Multithreaded correctness
+biojava-biojava;RC_REF_COMPARISON;293;Correctness
+biojava-biojava;MS_MUTABLE_COLLECTION;134;Malicious code vulnerability
+biojava-biojava;BC_IMPOSSIBLE_CAST;23;Correctness
+biojava-biojava;SC_START_IN_CTOR;112;Multithreaded correctness
+biojava-biojava;GC_UNRELATED_TYPES;128;Correctness
+biojava-biojava;NP_GUARANTEED_DEREF_ON_EXCEPTION_PATH;8;Correctness
+biojava-biojava;FI_PUBLIC_SHOULD_BE_PROTECTED;25;Malicious code vulnerability
+biojava-biojava;NP_NULL_ON_SOME_PATH_MIGHT_BE_INFEASIBLE;62;Dodgy code
+biojava-biojava;UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR;129;Correctness
+biojava-biojava;CNT_ROUGH_CONSTANT_VALUE;315;Bad practice
+biojava-biojava;NP_NULL_PARAM_DEREF_NONVIRTUAL;6;Correctness
+biojava-biojava;NP_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD;30;Dodgy code
+biojava-biojava;IL_INFINITE_RECURSIVE_LOOP;103;Correctness
+biojava-biojava;STCAL_STATIC_SIMPLE_DATE_FORMAT_INSTANCE;68;Multithreaded correctness
+biojava-biojava;RV_EXCEPTION_NOT_THROWN;144;Correctness
+biojava-biojava;ISC_INSTANTIATE_STATIC_CLASS;111;Bad practice
+biojava-biojava;SA_FIELD_SELF_ASSIGNMENT;69;Correctness
+biojava-biojava;NM_CLASS_NOT_EXCEPTION;69;Bad practice
+biojava-biojava;EQ_SELF_USE_OBJECT;315;Correctness
+biojava-biojava;DMI_BLOCKING_METHODS_ON_URL;81;Performance
+biojava-biojava;ML_SYNC_ON_FIELD_TO_GUARD_CHANGING_THAT_FIELD;109;Multithreaded correctness
+biojava-biojava;UL_UNRELEASED_LOCK;7;Multithreaded correctness
+biojava-biojava;DM_NEW_FOR_GETCLASS;10;Performance
+biojava-biojava;RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED;101;Multithreaded correctness
+biojava-biojava;DMI_INVOKING_HASHCODE_ON_ARRAY;7;Correctness
+biojava-biojava;SWL_SLEEP_WITH_LOCK_HELD;55;Multithreaded correctness
+biojava-biojava;DLS_DEAD_LOCAL_STORE_SHADOWS_FIELD;107;Dodgy code
+biojava-biojava;SW_SWING_METHODS_INVOKED_IN_SWING_THREAD;412;Bad practice
+biojava-biojava;DM_NEXTINT_VIA_NEXTDOUBLE;25;Performance
+biojava-biojava;SF_DEAD_STORE_DUE_TO_SWITCH_FALLTHROUGH;5;Correctness
+biojava-biojava;EC_NULL_ARG;144;Correctness
+biojava-biojava;NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS;60;Correctness
+biojava-biojava;IL_INFINITE_LOOP;5;Correctness
+biojava-biojava;BC_BAD_CAST_TO_CONCRETE_COLLECTION;39;Dodgy code
+biojava-biojava;BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION;86;Performance
+biojava-biojava;RV_ABSOLUTE_VALUE_OF_RANDOM_INT;47;Correctness
+biojava-biojava;SA_LOCAL_SELF_COMPARISON;13;Correctness
+biojava-biojava;FE_TEST_IF_EQUAL_TO_NOT_A_NUMBER;85;Correctness
+biojava-biojava;NP_CLONE_COULD_RETURN_NULL;57;Bad practice
+biojava-biojava;UCF_USELESS_CONTROL_FLOW_NEXT_LINE;65;Dodgy code
+biojava-biojava;RCN_REDUNDANT_COMPARISON_OF_NULL_AND_NONNULL_VALUE;15;Dodgy code
+biojava-biojava;IC_INIT_CIRCULARITY;61;Dodgy code
+biojava-biojava;EC_BAD_ARRAY_COMPARE;7;Correctness
+biojava-biojava;SA_FIELD_SELF_COMPARISON;52;Correctness
+biojava-biojava;NP_IMMEDIATE_DEREFERENCE_OF_READLINE;65;Dodgy code
+biojava-biojava;VA_FORMAT_STRING_EXTRA_ARGUMENTS_PASSED;182;Correctness
+biojava-biojava;BSHIFT_WRONG_ADD_PRIORITY;15;Correctness
+biojava-biojava;SI_INSTANCE_BEFORE_FINALS_ASSIGNED;42;Bad practice
+biojava-biojava;UM_UNNECESSARY_MATH;54;Performance
+biojava-biojava;EC_UNRELATED_CLASS_AND_INTERFACE;10;Correctness
+biojava-biojava;RU_INVOKE_RUN;5;Multithreaded correctness
+biojava-biojava;SKIPPED_CLASS_TOO_BIG;5;Other
+biojava-biojava;ME_MUTABLE_ENUM_FIELD;10;Bad practice
+biojava-biojava;EQ_ABSTRACT_SELF;42;Bad practice
+biojava-biojava;NM_FUTURE_KEYWORD_USED_AS_IDENTIFIER;5;Bad practice
+biojava-biojava;BC_IMPOSSIBLE_DOWNCAST_OF_TOARRAY;5;Correctness
+biojava-biojava;HSC_HUGE_SHARED_STRING_CONSTANT;47;Performance
+biojava-biojava;SA_LOCAL_DOUBLE_ASSIGNMENT;5;Dodgy code
+biojava-biojava;HE_USE_OF_UNHASHABLE_CLASS;13;Correctness
+biojava-biojava;INT_BAD_REM_BY_1;5;Dodgy code
+biojava-biojava;QF_QUESTIONABLE_FOR_LOOP;18;Dodgy code
+biojava-biojava;VA_PRIMITIVE_ARRAY_PASSED_TO_OBJECT_VARARG;12;Correctness
+biojava-biojava;RE_BAD_SYNTAX_FOR_REGULAR_EXPRESSION;6;Correctness
+biojava-biojava;QBA_QUESTIONABLE_BOOLEAN_ASSIGNMENT;5;Correctness
+biojava-biojava;DL_SYNCHRONIZATION_ON_BOXED_PRIMITIVE;69;Multithreaded correctness
+biojava-biojava;FI_USELESS;13;Bad practice
+biojava-biojava;DMI_USELESS_SUBSTRING;28;Dodgy code
+biojava-biojava;EQ_ALWAYS_TRUE;5;Correctness
+biojava-biojava;NM_METHOD_CONSTRUCTOR_CONFUSION;71;Correctness
+biojava-biojava;DMI_INVOKING_TOSTRING_ON_ANONYMOUS_ARRAY;20;Correctness
+biojava-biojava;VA_FORMAT_STRING_ILLEGAL;35;Correctness

@@ -229,11 +229,11 @@ cleanlab 2.1.0
 
 1. 收集警告数据集的项目findbugs-violation
 2. 收集警告数据集的目标项目biojava
-3. 进行置信学习的python文件（confident-learning.py）
-4. 进行数据集处理的python文件(process-dataset.py)
-5. 初始警告数据集txt文件(有效警告.txt、无效警告.txt、全部警告统计.txt、有效警告统计.txt)
-6. 标记后的警告数据集txt文件(警告标记整合.txt)
-7. 预处理后的数据集txt文件（有效警告(modified).txt、无效警告(modified).txt）
+3. 初始警告数据集txt文件(有效警告.txt、无效警告.txt、全部警告统计.txt、有效警告统计.txt)
+4. 标记后的警告数据集txt文件(警告标记整合.txt)
+5. 进行数据集处理的python文件(process-dataset.py)
+6. 预处理后的数据集txt文件（有效警告(modified).txt、无效警告(modified).txt）
+7. 进行置信学习的python文件（confident-learning.py）
 
 下面我分别介绍各文件的内容和作用
 
@@ -251,9 +251,11 @@ git reset --hard [commit id]
 
 将对应commit id版本的项目代码拉取到本地，然后根据警告数据集中的路径找到对应报警告的位置，进行人工识别警告是否为有效警告。
 
-#### 4.2.3
 
 
+#### 4.2.4 confident-learning.py
+
+本python文件为置信学习的主要文件。主要完成了以下工作
 
 
 

@@ -1,0 +1,109 @@
+ProjectName;Violation Type;Occurrence;Category
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC_ANON;10;Performance
+biojava-biojava;DLS_DEAD_LOCAL_STORE;192;Dodgy code
+biojava-biojava;DM_CONVERT_CASE;102;Internationalization
+biojava-biojava;DM_DEFAULT_ENCODING;154;Internationalization
+biojava-biojava;UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR;20;Dodgy code
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE;84;Dodgy code
+biojava-biojava;URF_UNREAD_FIELD;36;Performance
+biojava-biojava;BC_UNCONFIRMED_CAST;7;Dodgy code
+biojava-biojava;REC_CATCH_EXCEPTION;155;Dodgy code
+biojava-biojava;BC_UNCONFIRMED_CAST_OF_RETURN_VALUE;18;Dodgy code
+biojava-biojava;SE_NO_SERIALVERSIONID;31;Bad practice
+biojava-biojava;UPM_UNCALLED_PRIVATE_METHOD;52;Performance
+biojava-biojava;VA_FORMAT_STRING_USES_NEWLINE;35;Bad practice
+biojava-biojava;MS_SHOULD_BE_FINAL;72;Malicious code vulnerability
+biojava-biojava;RV_RETURN_VALUE_IGNORED_BAD_PRACTICE;9;Bad practice
+biojava-biojava;ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD;15;Dodgy code
+biojava-biojava;EI_EXPOSE_REP2;30;Malicious code vulnerability
+biojava-biojava;URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD;18;Dodgy code
+biojava-biojava;WMI_WRONG_MAP_ITERATOR;11;Performance
+biojava-biojava;OBL_UNSATISFIED_OBLIGATION;7;Experimental
+biojava-biojava;EI_EXPOSE_REP;16;Malicious code vulnerability
+biojava-biojava;NP_LOAD_OF_KNOWN_NULL_VALUE;21;Dodgy code
+biojava-biojava;DM_NUMBER_CTOR;27;Performance
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC;6;Performance
+biojava-biojava;SBSC_USE_STRINGBUFFER_CONCATENATION;60;Performance
+biojava-biojava;OS_OPEN_STREAM_EXCEPTION_PATH;75;Bad practice
+biojava-biojava;SF_SWITCH_NO_DEFAULT;18;Dodgy code
+biojava-biojava;UWF_UNWRITTEN_FIELD;3;Correctness
+biojava-biojava;DE_MIGHT_IGNORE;15;Bad practice
+biojava-biojava;DM_BOXED_PRIMITIVE_FOR_PARSING;11;Performance
+biojava-biojava;RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT;4;Dodgy code
+biojava-biojava;PZLA_PREFER_ZERO_LENGTH_ARRAYS;3;Dodgy code
+biojava-biojava;RI_REDUNDANT_INTERFACES;24;Dodgy code
+biojava-biojava;UCF_USELESS_CONTROL_FLOW;7;Dodgy code
+biojava-biojava;UC_USELESS_CONDITION;2;Dodgy code
+biojava-biojava;NP_NULL_ON_SOME_PATH;34;Correctness
+biojava-biojava;UC_USELESS_OBJECT;11;Dodgy code
+biojava-biojava;DM_FP_NUMBER_CTOR;2;Performance
+biojava-biojava;MS_PKGPROTECT;9;Malicious code vulnerability
+biojava-biojava;OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE;25;Experimental
+biojava-biojava;ES_COMPARING_STRINGS_WITH_EQ;47;Bad practice
+biojava-biojava;OS_OPEN_STREAM;35;Bad practice
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE;7;Correctness
+biojava-biojava;SS_SHOULD_BE_STATIC;8;Performance
+biojava-biojava;FE_FLOATING_POINT_EQUALITY;5;Dodgy code
+biojava-biojava;HE_EQUALS_USE_HASHCODE;19;Bad practice
+biojava-biojava;DM_EXIT;3;Bad practice
+biojava-biojava;NM_CONFUSING;38;Bad practice
+biojava-biojava;LI_LAZY_INIT_STATIC;10;Multithreaded correctness
+biojava-biojava;BX_UNBOXING_IMMEDIATELY_REBOXED;2;Performance
+biojava-biojava;EQ_COMPARETO_USE_OBJECT_EQUALS;2;Bad practice
+biojava-biojava;NP_NULL_ON_SOME_PATH_EXCEPTION;6;Correctness
+biojava-biojava;MS_MUTABLE_COLLECTION_PKGPROTECT;3;Malicious code vulnerability
+biojava-biojava;UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD;6;Dodgy code
+biojava-biojava;CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE;4;Bad practice
+biojava-biojava;SE_BAD_FIELD;1;Bad practice
+biojava-biojava;DM_STRING_TOSTRING;13;Performance
+biojava-biojava;DMI_HARDCODED_ABSOLUTE_FILENAME;36;Dodgy code
+biojava-biojava;UUF_UNUSED_FIELD;1;Performance
+biojava-biojava;EC_UNRELATED_TYPES;2;Correctness
+biojava-biojava;BC_VACUOUS_INSTANCEOF;13;Dodgy code
+biojava-biojava;ICAST_IDIV_CAST_TO_DOUBLE;6;Dodgy code
+biojava-biojava;RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE;10;Dodgy code
+biojava-biojava;ES_COMPARING_PARAMETER_STRING_WITH_EQ;20;Bad practice
+biojava-biojava;SE_BAD_FIELD_STORE;10;Bad practice
+biojava-biojava;RpC_REPEATED_CONDITIONAL_TEST;7;Correctness
+biojava-biojava;NP_NULL_PARAM_DEREF;11;Correctness
+biojava-biojava;GC_UNRELATED_TYPES;20;Correctness
+biojava-biojava;DLS_DEAD_LOCAL_STORE_OF_NULL;13;Dodgy code
+biojava-biojava;RC_REF_COMPARISON_BAD_PRACTICE;4;Bad practice
+biojava-biojava;CN_IDIOM_NO_SUPER_CALL;10;Bad practice
+biojava-biojava;NP_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD;15;Dodgy code
+biojava-biojava;UC_USELESS_VOID_METHOD;1;Dodgy code
+biojava-biojava;DMI_INVOKING_TOSTRING_ON_ARRAY;1;Correctness
+biojava-biojava;SF_SWITCH_FALLTHROUGH;1;Dodgy code
+biojava-biojava;IP_PARAMETER_IS_DEAD_BUT_OVERWRITTEN;6;Correctness
+biojava-biojava;DB_DUPLICATE_BRANCHES;4;Dodgy code
+biojava-biojava;STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE;1;Multithreaded correctness
+biojava-biojava;IL_INFINITE_RECURSIVE_LOOP;4;Correctness
+biojava-biojava;NP_NULL_PARAM_DEREF_NONVIRTUAL;1;Correctness
+biojava-biojava;UR_UNINIT_READ;1;Correctness
+biojava-biojava;VA_FORMAT_STRING_EXTRA_ARGUMENTS_PASSED;7;Correctness
+biojava-biojava;IT_NO_SUCH_ELEMENT;1;Bad practice
+biojava-biojava;RC_REF_COMPARISON;2;Correctness
+biojava-biojava;DLS_DEAD_LOCAL_STORE_SHADOWS_FIELD;6;Dodgy code
+biojava-biojava;NP_DEREFERENCE_OF_READLINE_VALUE;4;Dodgy code
+biojava-biojava;BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS;4;Bad practice
+biojava-biojava;NS_DANGEROUS_NON_SHORT_CIRCUIT;2;Dodgy code
+biojava-biojava;SR_NOT_CHECKED;3;Bad practice
+biojava-biojava;RR_NOT_CHECKED;3;Bad practice
+biojava-biojava;CO_COMPARETO_INCORRECT_FLOATING;5;Bad practice
+biojava-biojava;NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS;5;Correctness
+biojava-biojava;SA_FIELD_SELF_ASSIGNMENT;6;Correctness
+biojava-biojava;LI_LAZY_INIT_UPDATE_STATIC;7;Multithreaded correctness
+biojava-biojava;SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS;1;Performance
+biojava-biojava;FE_TEST_IF_EQUAL_TO_NOT_A_NUMBER;9;Correctness
+biojava-biojava;ISC_INSTANTIATE_STATIC_CLASS;12;Bad practice
+biojava-biojava;EQ_SELF_USE_OBJECT;7;Correctness
+biojava-biojava;UCF_USELESS_CONTROL_FLOW_NEXT_LINE;2;Dodgy code
+biojava-biojava;BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION;2;Performance
+biojava-biojava;SA_FIELD_DOUBLE_ASSIGNMENT;3;Dodgy code
+biojava-biojava;UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR;2;Correctness
+biojava-biojava;CN_IDIOM;11;Bad practice
+biojava-biojava;EC_UNRELATED_CLASS_AND_INTERFACE;7;Correctness
+biojava-biojava;VA_FORMAT_STRING_ILLEGAL;8;Correctness
+biojava-biojava;NM_METHOD_CONSTRUCTOR_CONFUSION;6;Correctness
+biojava-biojava;QF_QUESTIONABLE_FOR_LOOP;1;Dodgy code
+biojava-biojava;RCN_REDUNDANT_COMPARISON_OF_NULL_AND_NONNULL_VALUE;3;Dodgy code
