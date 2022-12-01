@@ -1,0 +1,3 @@
+[submodule "biojava"]
+	path = biojava
+	url = git@github.com:biojava/biojava.git
