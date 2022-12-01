@@ -251,11 +251,202 @@ git reset --hard [commit id]
 
 将对应commit id版本的项目代码拉取到本地，然后根据警告数据集中的路径找到对应报警告的位置，进行人工识别警告是否为有效警告。
 
+#### 4.2.3初始警告数据集txt文件
+
+其中包括四个文件：有效警告.txt、无效警告.txt、全部警告统计.txt、有效警告统计.txt，下面分别介绍其中内容。
+
+**有效警告.txt**:记录了所有biojava中通过findbugs标记出的有效警告，形如下表（表项数据为示例）
 
 
-#### 4.2.4 confident-learning.py
+
+| 警告类型     | 报警告版本的commit id | 警告在项目中的位置     | 警告消失版本的commit id | 警告消失版本时在项目中的位置 | 有效 |
+| ------------ | --------------------- | ---------------------- | ----------------------- | ---------------------------- | ---- |
+| 未使用的数据 | ....                  | ..../main/..../xx.java | ......                  | ..../main/..../xx.java       | 是   |
+
+**无效警告.txt**:记录了所有biojava中通过findbugs标记处的无效警告，形如下表（表项数据为示例）
+
+
+
+| 警告类型     | 报警告版本的commit id | 在项目中的位置         | 有效 |
+| ------------ | --------------------- | ---------------------- | ---- |
+| 未使用的数据 | ....                  | ..../main/..../xx.java | 否   |
+
+**全部警告统计.txt：**记录了所有警告中警告类型的出现次数，以及警告类型对应的大类，形如下表（表项数据为示例）
+
+| Violation Type        | Occurrence | Category     |
+| --------------------- | ---------- | ------------ |
+| SE_NO_SERIALVERSIONID | 5195       | Bad practice |
+
+**有效警告统计.txt**:记录了所有有效警告中警告类型的出现次数，以及警告类型对应的大类，形如下表（表项数据为示例）
+
+| Violation Type                  | Occurrence | Category    |
+| ------------------------------- | ---------- | ----------- |
+| SIC_INNER_SHOULD_BE_STATIC_ANON | 10         | Performance |
+
+#### 4.2.4标记后的警告数据集txt文件
+
+包含一个文件：**警告标记整合.txt**：其中记录了2000条正告和2000条误告的人工标记，其中标记中的“1”表示close，“2”表示open，“3”表示unknown，形如下表（表项数据为示例）
+
+有效警告标记样本：
+
+| 警告类型     | 报警告版本的commit id | 警告在项目中的位置     | 警告消失版本的commit id | 警告消失版本时在项目中的位置 | 有效 | 标记 |
+| ------------ | --------------------- | ---------------------- | ----------------------- | ---------------------------- | ---- | ---- |
+| 未使用的数据 | ....                  | ..../main/..../xx.java | ......                  | ..../main/..../xx.java       | 是   | 1    |
+
+无效警告标记样本
+
+| 警告类型     | 报警告版本的commit id | 在项目中的位置         | 有效 | 标记 |
+| ------------ | --------------------- | ---------------------- | ---- | ---- |
+| 未使用的数据 | ....                  | ..../main/..../xx.java | 否   | 2    |
+
+#### 4.2.5进行数据集处理的python文件
+
+包含一个文件：**process-dataset.py**：
+
+ps：对于代码中的路径需要修改为对应的路径，当前展示的是代码在Ubuntu虚拟机运行时的路径
+
+其中对于有效警告.txt和无效警告.txt做了如下处理：
+
+1. 首先根据python自带的git包，获取每条数据对应commit id的时间先后顺序，然后将commit id用commit的日期时间替换之。
+
+   ```python
+   from git.repo import Repo #python 自带的git包，便于我们撰写脚本
+   import datetime
+   
+   git_repo_dir='/home/shenyujie/automaticTesting/biojava'
+   
+   def get_commit_time(commit_id):#根据commit id获取commit时间的方法
+       repo = Repo(git_repo_dir)
+       commit = repo.commit(commit_id)
+       return commit.committed_date
+   
+   #下面分别将有效警告.txt和无效警告.txt中的commit id 全部替换为 commit时间并分别存放在有效警告(modified).txt和无效警告(modified).txt中
+   f = open("/home/shenyujie/dataset/有效警告.txt")
+   s = f.read() 
+   s = s.replace(":"," ")
+   s = s.replace("=>"," ")
+   f.close()
+   res = ""
+   array = s.split("\n")
+   for i in range(0,len(array)):
+       subArray = array.split(" ")
+       for j in range(0,len(subArray)):
+           if j != 3:
+               res = res + subArray + " "
+           else:
+               strDate = datetime.datetime.strftime(get_commit_time(subArray[j]),"%Y%m%d%H%M%S")
+               res = res + strDate + " "
+       res = res + "\n"    
+   f = open("/home/shenyujie/dataset/有效警告(modified).txt","w")
+   f.write(res)
+   f.close()
+   
+   f = open("/home/shenyujie/dataset/无效警告.txt")
+   s = f.read() 
+   s = s.replace(":"," ")
+   s = s.replace("，"," ")
+   f.close()
+   res = ""
+   array = s.split("\n")
+   for i in range(0,len(array)):
+       subArray = array.split(" ")
+       for j in range(0,len(subArray)):
+           if j != 3:
+               res = res + subArray + " "
+           else:
+               strDate = datetime.datetime.strftime(get_commit_time(subArray[j]),"%Y%m%d%H%M%S")
+               res = res + strDate + " "
+       res = res + "\n"    
+   f = open("/home/shenyujie/dataset/无效警告(modified).txt","w")
+   f.write(res)
+   f.close()
+   
+   ```
+
+   
+
+2. 然后根据警告类型属于某一个警告大类，将其警告大类的信息添加到对应的样本中
+
+   ps：对于代码中的路径需要修改为对应的路径，当前展示的是代码在Ubuntu虚拟机运行时的路径
+
+   ```python
+   #建立一个警告类型到大类的映射表
+   f = open("/home/shenyujie/dataset/全部警告统计.txt")
+   s = f.read()
+   s = s.replace(";"," ")
+   f.close()
+   typeMap = split("\n") 
+   for i in range(0,len(typeMap)):
+       typeMap[i] = typeMap[i].split(" ")
+   
+   #给有效警告(modified).txt的数据集添加上警告类型大类
+   f = open("/home/shenyujie/dataset/有效警告(modified).txt")
+   s = f.read()
+   f.close()
+   res = ""
+   array = s.split("\n")
+   for i in range(0,len(array)):
+       subArray = array[i].split(" ")
+       bigType = ""
+       for j in range(0,len(typeMap)):
+           if subArray[0] == typeMap[j][1]:
+               res = res + typeMap[j][3] + " "+ array[i] + "\n"
+               break
+   f = open("/home/shenyujie/dataset/有效警告(modified).txt","w")
+   f.write(res)
+   f.close()
+   
+   #给无效警告(modified).txt的数据集添加上警告类型大类
+   f = open("/home/shenyujie/dataset/无效警告(modified).txt")
+   s = f.read()
+   f.close()
+   res = ""
+   array = s.split("\n")
+   for i in range(0,len(array)):
+       subArray = array[i].split(" ")
+       bigType = ""
+       for j in range(0,len(typeMap)):
+           if subArray[0] == typeMap[j][1]:
+               res = res + typeMap[j][3] + " "+ array[i] + "\n"
+               break
+   f = open("/home/shenyujie/dataset/无效警告(modified).txt","w")
+   f.write(res)
+   f.close()
+   ```
+
+   
+
+#### 4.2.6 预处理后的数据集txt文件
+
+包含两个文件：有效警告(modified).txt、无效警告(modified).txt
+
+**有效警告(modified).txt**：
+
+经过process-dataset.py文件处理之后，其中的commit id一列更换为了commit time，新增了一列表示警告类型大类。形如下表（数据项为示例）：
+
+
+
+| 警告类型     | 报警告版本的commit时间 | 警告在项目中的位置     | 警告消失版本的commit id | 警告消失版本时在项目中的位置 | 警告大类      |
+| ------------ | ---------------------- | ---------------------- | ----------------------- | ---------------------------- | ------------- |
+| 未使用的数据 | 20151022180536         | ..../main/..../xx.java | 201510232304            | ..../main/..../xx.java       | Bad  Practice |
+
+
+
+**无效警告(modified).txt：**
+
+经过process-dataset.py文件处理之后，其中的commit id一列更换为了commit time，新增了一列表示警告类型大类。形如下表（数据项为示例）：
+
+| 警告类型     | 报警告版本的commit id | 在项目中的位置         | 警告大类      |
+| ------------ | --------------------- | ---------------------- | ------------- |
+| 未使用的数据 | ....                  | ..../main/..../xx.java | Bad  Practice |
+
+#### 4.2.7 进行置信学习的python文件
+
+包含一个文件：confident-learning.py
 
 本python文件为置信学习的主要文件。主要完成了以下工作
+
+
 
 
 
