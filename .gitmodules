@@ -1,3 +1,6 @@
 [submodule "biojava"]
 	path = biojava
 	url = git@github.com:biojava/biojava.git
+[submodule "findbugs-violations"]
+	path = findbugs-violations
+	url = git@github.com:lxyeah/findbugs-violations.git
