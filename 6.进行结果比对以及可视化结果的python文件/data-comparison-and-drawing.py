@@ -79,3 +79,51 @@ X = ["precision","accuracy","recall"]
 Y = [precision,accuracy,recall]
 plt.bar(X,Y,color='b')
 plt.show()
+
+# ----------------------------------------------------------------------------------------
+# 下面绘制的是不同k取值下交叉验证的结果：主要体现为loss，和噪声数量
+#------------------------------------------------------------------------------------------
+
+x_axis_data = [3, 4, 5,6,7,8,9,10,11,12]
+y_axis_data = [201, 57, 278, 269, 48,186,111,140,215,160]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='number of noise')
+plt.legend(loc="upper right")
+plt.xlabel('K')
+plt.ylabel('number of noise')
+for i in range(0,len(y_axis_data)):
+    plt.text(x_axis_data[i],y_axis_data[i]+4,str(y_axis_data[i]))
+plt.show()
+
+
+
+x_axis_data = [3, 4, 5,6,7,8,9,10,11,12]
+y_axis_data = [0.672, 0.665, 0.662, 0.659, 0.655,0.654,0.653,0.651,0.650,0.647]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='loss')
+plt.legend(loc="upper right")
+plt.xlabel('K')
+plt.ylabel('loss')
+for i in range(0,len(y_axis_data)):
+    if i==9:
+        plt.text(x_axis_data[i]-0.3,y_axis_data[i]+0.0008,str(y_axis_data[i]))
+    elif i!=0:
+        plt.text(x_axis_data[i],y_axis_data[i]+0.001,str(y_axis_data[i]))
+    else :
+        
+        plt.text(x_axis_data[i]+0.3,y_axis_data[i]+0.0004,str(y_axis_data[i]))
+plt.show()
+
+# ----------------------------------------------------------------------------------------
+# 下面绘制的是10次训练模型中常规模型和cleanlab模型测试集准确率的结果
+#------------------------------------------------------------------------------------------
+
+
+x_axis_data = [1, 2, 3,4,5,6,7,8,9,10]
+y_axis_data = [0.9133, 0.9271, 0.9259, 0.8927, 0.5858,0.7379,0.9133,0.9202,0.8596,0.8318]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='normal model')
+x_axis_data = [1, 2, 3,4,5,6,7,8,9,10]
+y_axis_data = [0.9248, 0.9076, 0.9259, 0.9110, 0.9271,0.9156,0.9271,0.9271,0.7345,0.8561]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#ff0000', alpha=0.8, linewidth=1, label='cleanlab model')
+plt.legend(loc="upper right")
+plt.xlabel('')
+plt.ylabel('accuracy')
+plt.show()
