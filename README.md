@@ -12,7 +12,7 @@
 
 findbugs-violation (https://github.com/lxyeah/findbugs-violations) ，收集github上的apache项目的警告数据集。第二个阶段，利用cleanlab这一python包，对数据集进行去噪，并对模型进行训练。
 
-下面我们将对于以下两个部分分别展开介绍我们的工作过程和心路历程，最后会附上本项目的说明书。
+下面我们将对于以下两个部分分别展开介绍我们的工作过程和心路历程(2,3)，最后会附上本项目的说明书(4)。
 
 ## 2.数据集收集与标记
 
@@ -181,7 +181,7 @@ ranked_label_issues = find_label_issues(
 )#得到一个最有可能是噪声的样本的下标的list，按照可能性从高到低进行排列。
 ```
 
-根据结果，我们找到了97个噪音，其中有效警告中的噪音有70个，无效警告中的噪音有27个。当然，找到的噪音数量也与我们之前设定的参数有关。比如说，在k-折交叉验证阶段设定k值的时候，如果k值设定得越大，那么标签概率的分布的预测越接近真实情况，那么对于去噪来说，噪声就会因为概率的接近而变少，但是，如果k值设定得越小，那么标签概率分布的预测就会变得模糊，偏离真实情况，那么噪声就会因为概率的偏差而变多。
+根据结果，我们找到了140个噪音，其中有效警告中的噪音有121个，无效警告中的噪音有19个。当然，找到的噪音数量也与我们之前设定的参数有关。比如说，在k-折交叉验证阶段设定k值的时候，如果k值设定得越大，那么标签概率的分布的预测越接近真实情况，那么对于去噪来说，噪声就会因为概率的接近而变少，但是，如果k值设定得越小，那么标签概率分布的预测就会变得模糊，偏离真实情况，那么噪声就会因为概率的偏差而变多。
 
 #### 3.3.3retrain阶段
 
@@ -205,7 +205,7 @@ model.fit(train_texts, train_labels) #在常规模型下进行训练
 
 ![](https://user-images.githubusercontent.com/81347141/205212022-6766e8ff-16e8-4a7d-b5fb-0949dba9c288.png)
 
-
+对于模型偶尔有准确度大幅下降情况（比如第五次训练、第九次训练），我们认为是数据特征不够突出，加上每一次训练都重新打乱了训练集和测试集，所以导致了在某些个别的训练中产生测试集准确率下降。
 
 ### 3.4模型标记与人工标记比对
 
@@ -263,6 +263,7 @@ cleanlab 2.1.0
 5. 进行数据集处理的python文件(process-dataset.py)
 6. 预处理后的数据集txt文件（有效警告(modified).txt、无效警告(modified).txt）
 7. 进行置信学习的python文件（confident-learning.py）
+8. 进行结果比对以及可视化结果的python文件（data-comparision-and-drawing.py）
 
 下面我分别介绍各文件的内容和作用
 
@@ -671,11 +672,145 @@ print(f"Test accuracy of cleanlab's neural net: {acc_cl}")
 
 
 
+#### 4.2.8 进行结果比对以及可视化结果的python文件
+
+包含一个文件：data-comparision-and-drawing.py
+
+其中将cleanlab找出的噪声与人工标注的噪声进行比对，形成混淆矩阵，并可视化混淆矩阵以及精度、准确度召回率。
+
+ps：对于代码中的路径需要修改为对应的路径，当前展示的是代码在Ubuntu虚拟机运行时的路径
+
+```python
+# 加载数据
+f = open("/home/shenyujie/dataset/result-0.txt")
+s1 = f.read()
+f.close()
+f=open("/home/shenyujie/dataset/标记整合.txt")
+s2 = f.read()
+s2 = s2.replace(" ","")
+s2 = s2.replace(":"," ")
+s2 = s2.replace("=>"," ")
+f.close()
+
+from git.repo import Repo #python 自带的git包，便于我们撰写脚本
+import datetime
+
+git_repo_dir='/home/shenyujie/dataset/biojava'
+
+def get_commit_time(commit_id): #根据commit id获取commit时间的方法
+    repo = Repo(git_repo_dir)
+    commit = repo.commit(commit_id)
+    
+    return commit.committed_datetime
+
+
+array1 = s1.split("\n")
+array2 = s2.split("\n")
+for i in range(1,len(array2)):
+    subArray = array2[i].split(" ")
+    if len(subArray)>=3:
+        strDate = datetime.datetime.strftime(get_commit_time(subArray[2]),"%Y%m%d%H%M%S")
+        array2[i] = array2[i].replace(subArray[2],strDate)
+
+#计算TP
+TP = 0 
+for i in range(0,len(array1)):
+    subArray1 = array1[i].split(" ")
+    for j in range(1,len(array2)):
+        subArray2 = array2[j].split(" ")
+        if len(subArray2)>=3 and len(subArray1)>=3:
+            if subArray1[3]==subArray2[2]:
+                if(subArray1[-1]==subArray2[-1][-1]):
+                    TP = TP + 1
+                    break
+        
+        
+print(TP)
+
+import matplotlib.pyplot as plt
+
+
+# 计算TP + FN
+T = 0
+for i in range(0,len(array2)):
+    subArray = array2[i].split(" ")
+    
+    if len(subArray)>=3 and subArray[-1][-1] == '2':
+        T = T+1
+print(T)
+
+# ----------------------------------------------------------------------------------------
+# 下面根据比对的数据进行可视化，主要体现出混淆矩阵、精度、准确度、召回率
+#------------------------------------------------------------------------------------------
+#已知总的数据量为4074
+total = 4074
+TP=TP
+FP=140-TP
+FN=T -TP
+TN= total - TP - FP - FN
+X = ["TP","FN","FP","TN"]
+Y = [TP,FN,FP,TN]
+plt.bar(X,Y,color='b')
+plt.show()
+
+precision = TP/(TP+FP)
+accuracy = (TP+TN)/(TP+TN+FP+FN)
+recall = (TP)/(TP+FN)
+
+
+X = ["precision","accuracy","recall"]
+Y = [precision,accuracy,recall]
+plt.bar(X,Y,color='b')
+plt.show()
+
+# ----------------------------------------------------------------------------------------
+# 下面绘制的是不同k取值下交叉验证的结果：主要体现为loss，和噪声数量
+#------------------------------------------------------------------------------------------
+
+x_axis_data = [3, 4, 5,6,7,8,9,10,11,12]
+y_axis_data = [201, 57, 278, 269, 48,186,111,140,215,160]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='number of noise')
+plt.legend(loc="upper right")
+plt.xlabel('K')
+plt.ylabel('number of noise')
+for i in range(0,len(y_axis_data)):
+    plt.text(x_axis_data[i],y_axis_data[i]+4,str(y_axis_data[i]))
+plt.show()
 
 
 
+x_axis_data = [3, 4, 5,6,7,8,9,10,11,12]
+y_axis_data = [0.672, 0.665, 0.662, 0.659, 0.655,0.654,0.653,0.651,0.650,0.647]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='loss')
+plt.legend(loc="upper right")
+plt.xlabel('K')
+plt.ylabel('loss')
+for i in range(0,len(y_axis_data)):
+    if i==9:
+        plt.text(x_axis_data[i]-0.3,y_axis_data[i]+0.0008,str(y_axis_data[i]))
+    elif i!=0:
+        plt.text(x_axis_data[i],y_axis_data[i]+0.001,str(y_axis_data[i]))
+    else :
+        
+        plt.text(x_axis_data[i]+0.3,y_axis_data[i]+0.0004,str(y_axis_data[i]))
+plt.show()
+
+# ----------------------------------------------------------------------------------------
+# 下面绘制的是10次训练模型中常规模型和cleanlab模型测试集准确率的结果
+#------------------------------------------------------------------------------------------
 
 
+x_axis_data = [1, 2, 3,4,5,6,7,8,9,10]
+y_axis_data = [0.9133, 0.9271, 0.9259, 0.8927, 0.5858,0.7379,0.9133,0.9202,0.8596,0.8318]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#4169E1', alpha=0.8, linewidth=1, label='normal model')
+x_axis_data = [1, 2, 3,4,5,6,7,8,9,10]
+y_axis_data = [0.9248, 0.9076, 0.9259, 0.9110, 0.9271,0.9156,0.9271,0.9271,0.7345,0.8561]
+plt.plot(x_axis_data, y_axis_data, 'ro-', color='#ff0000', alpha=0.8, linewidth=1, label='cleanlab model')
+plt.legend(loc="upper right")
+plt.xlabel('')
+plt.ylabel('accuracy')
+plt.show()
+```
 
 
 

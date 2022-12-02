@@ -1,3 +1,4 @@
+# 加载数据
 f = open("/home/shenyujie/dataset/result-0.txt")
 s1 = f.read()
 f.close()
@@ -19,7 +20,6 @@ def get_commit_time(commit_id): #根据commit id获取commit时间的方法
     
     return commit.committed_datetime
 
-# strDate = datetime.datetime.strftime(get_commit_time(subArray[j]),"%Y%m%d%H%M%S")
 
 array1 = s1.split("\n")
 array2 = s2.split("\n")
@@ -28,54 +28,17 @@ for i in range(1,len(array2)):
     if len(subArray)>=3:
         strDate = datetime.datetime.strftime(get_commit_time(subArray[2]),"%Y%m%d%H%M%S")
         array2[i] = array2[i].replace(subArray[2],strDate)
-        print(array2[i])
-    
-#     temp = ""
-#     for j in range(0,len(subArray)):
-#         if j!=2:
-#             temp = temp + subArray[j] + " "
-#         else:
-#             temp = temp + strDate
-            
-            
-# TP = 0
-# for i in range(0,len(array1)):
-#     subArray1 = array1[i].split(" ")
-#     for j in range(1,len(array2)):
-#         subArray2 = array2[j].split(" ")
-        
-# #         print(subArray2)
-#         if len(subArray2)>=3:
-# #             print(subArray2[2])
-# #             print(get_commit_time(subArray2[2]))
-#             strDate = datetime.datetime.strftime(get_commit_time(subArray2[2]),"%Y%m%d%H%M%S")
-#             if subArray1[3]==strDate:
-#                 if(subArray1[-1]==subArray2[-1]):
-#                     TP = TP + 1
-#                     print(array1[i])
-#                     break
-        
-        
-# print(TP)
 
-TP = 0
+#计算TP
+TP = 0 
 for i in range(0,len(array1)):
     subArray1 = array1[i].split(" ")
     for j in range(1,len(array2)):
         subArray2 = array2[j].split(" ")
-        
-#         print(subArray2)
         if len(subArray2)>=3 and len(subArray1)>=3:
-#             print(subArray2[2])
-#             print(get_commit_time(subArray2[2]))
-            
             if subArray1[3]==subArray2[2]:
-#                 print(subArray1[-1])
-#                 print(subArray2[-1][-1])
                 if(subArray1[-1]==subArray2[-1][-1]):
-                    
                     TP = TP + 1
-                    print(array1[i])
                     break
         
         
@@ -83,6 +46,8 @@ print(TP)
 
 import matplotlib.pyplot as plt
 
+
+# 计算TP + FN
 T = 0
 for i in range(0,len(array2)):
     subArray = array2[i].split(" ")
@@ -91,13 +56,17 @@ for i in range(0,len(array2)):
         T = T+1
 print(T)
 
-
-TP=106
-FP=34
-FN=562
-TN=3372
+# ----------------------------------------------------------------------------------------
+# 下面根据比对的数据进行可视化，主要体现出混淆矩阵、精度、准确度、召回率
+#------------------------------------------------------------------------------------------
+#已知总的数据量为4074
+total = 4074
+TP=TP
+FP=140-TP
+FN=T -TP
+TN= total - TP - FP - FN
 X = ["TP","FN","FP","TN"]
-Y = [106,562,34,3372]
+Y = [TP,FN,FP,TN]
 plt.bar(X,Y,color='b')
 plt.show()
 
