@@ -6,7 +6,7 @@ git_repo_dir='/home/shenyujie/automaticTesting/biojava'
 def get_commit_time(commit_id):#根据commit id获取commit时间的方法
     repo = Repo(git_repo_dir)
     commit = repo.commit(commit_id)
-    return commit.committed_date
+    return commit.committed_datetime
 
 #下面分别将有效警告.txt和无效警告.txt中的commit id 全部替换为 commit时间并分别存放在有效警告(modified).txt和无效警告(modified).txt中
 f = open("/home/shenyujie/dataset/有效警告.txt")
@@ -36,6 +36,7 @@ s = s.replace("，"," ")
 f.close()
 res = ""
 array = s.split("\n")
+array = array[0:len(array):50]
 for i in range(0,len(array)):
     subArray = array.split(" ")
     for j in range(0,len(subArray)):

@@ -107,6 +107,14 @@ ranked_label_issues = find_label_issues(
 )
 print(ranked_label_issues)
 
+res = ""
+for i in range(0,len(ranked_label_issues)):
+    res = res + raw_full_texts[ranked_label_issues[i]] +" "+full_labels[ranked_label_issues[i]] +"\n"
+    
+f = open("/home/shenyujie/dataset/result-0.txt","w")
+f.write(res)
+f.close()
+
 #--------------------------------------------------------------
 # 下面将cleanlab与常规模型的拟合程度进行比对
 #--------------------------------------------------------------
